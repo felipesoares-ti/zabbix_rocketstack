@@ -104,4 +104,55 @@ sudo ./zabbix_rocketstack.sh
 
 ---
 
+## 🧑‍💻 Aplicabilidade e Passo a Passo
+
+### Exemplos de uso
+
+#### 1. Instalação padrão (tudo automático)
+```bash
+sudo ./zabbix_rocketstack.sh
+```
+- Instala e configura todos os serviços com as portas e senhas padrão.
+
+#### 2. Instalação customizada (exemplo de variáveis)
+```bash
+export MYSQL_ROOT_PASSWORD=MinhaSenhaForte
+export GRAFANA_PORT=4001
+sudo ./zabbix_rocketstack.sh
+```
+- Personalize portas, senhas e versões conforme sua necessidade.
+
+#### 3. Atualizar imagens Docker
+```bash
+sudo ./zabbix_rocketstack.sh update
+```
+- Atualiza todas as imagens do stack para as versões mais recentes.
+
+#### 4. Remover todo o stack
+```bash
+sudo ./zabbix_rocketstack.sh remove
+```
+- Remove todos os containers e volumes criados pelo RocketStack.
+
+#### 5. Backup e restore do banco MySQL
+```bash
+sudo ./zabbix_rocketstack.sh backup   # Gera arquivo mysql_backup.tar.gz
+sudo ./zabbix_rocketstack.sh restore  # Restaura o backup
+```
+
+### Fluxo típico de uso
+1. Faça login em um servidor Linux compatível.
+2. Clone o repositório ou transfira o script para o servidor.
+3. Dê permissão de execução: `chmod +x zabbix_rocketstack.sh`
+4. Execute conforme o cenário desejado (padrão, customizado, update, etc).
+5. Acesse os serviços via navegador usando o IP do servidor e as portas informadas.
+6. Use o Portainer para gerenciar containers e o Grafana/Zabbix para criar dashboards.
+
+### Recomendações de uso
+- Ideal para ambientes de testes, laboratórios, POCs e pequenas/médias implantações.
+- Para produção, revise as configurações de segurança, backup e persistência de dados.
+- Consulte a documentação oficial do Zabbix e Grafana para integrações avançadas.
+
+---
+
 > Feito com 💜 para a comunidade de monitoramento!
